@@ -9,6 +9,7 @@ import SendReceivePayments from "./components/SendReceivePayments";
 import PaymentFeaturePage from "./components/PaymentFeaturePage";
 import Infrastructure from "./components/Infrastructure";
 import GameApiSection from "./components/GameApiSection";
+import RobotPayAdoptionSection from "./components/RobotPayAdoptionSection";
 import Footer from "./components/Footer";
 import Countries from "./components/Countries";
 import ContactPage from "./components/ContactPage";
@@ -81,6 +82,7 @@ function Home() {
         <SendReceivePayments />
         <Infrastructure />
         <GameApiSection />
+        <RobotPayAdoptionSection />
       </main>
       <Footer />
     </>

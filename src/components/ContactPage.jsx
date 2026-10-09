@@ -56,7 +56,6 @@ const copy = {
       whatsapp: "WhatsApp support",
       general: "General questions"
     },
-    action: "Contact"
   },
   fr: {
     eyebrow: "CONTACT ROBOTPAY",
@@ -72,7 +71,6 @@ const copy = {
       whatsapp: "Assistance WhatsApp",
       general: "Question générale"
     },
-    action: "Contacter"
   },
   zh: {
     eyebrow: "联系 ROBOTPAY",
@@ -86,7 +84,6 @@ const copy = {
       whatsapp: "WhatsApp 支持",
       general: "一般咨询"
     },
-    action: "联系"
   }
 };
 

@@ -1,0 +1,169 @@
+.rp-adoption-section {
+  overflow: hidden;
+  background: #fff;
+}
+
+.rp-adoption-intro {
+  width: min(780px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: clamp(54px, 7vw, 82px) 0 clamp(52px, 7vw, 78px);
+  text-align: center;
+}
+
+.rp-adoption-eyebrow {
+  margin-bottom: 13px;
+  color: #3157f5;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.rp-adoption-intro h2 {
+  color: #101a4a;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+}
+
+.rp-adoption-lead {
+  max-width: 640px;
+  margin: 19px auto 0;
+  color: #58627b;
+  font-size: clamp(17px, 2.1vw, 21px);
+  line-height: 1.65;
+}
+
+.rp-adoption-image {
+  width: 100%;
+  max-height: 590px;
+  aspect-ratio: 16 / 8.5;
+  overflow: hidden;
+  background: #e9edf5;
+}
+
+.rp-adoption-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 44%;
+}
+
+.rp-adoption-panel {
+  padding: clamp(56px, 8vw, 104px) 24px;
+  background:
+    radial-gradient(ellipse at 0% 100%, rgba(75, 128, 255, 0.3), transparent 48%),
+    linear-gradient(112deg, #3157f5 0%, #17285f 62%, #101a4a 100%);
+  color: #fff;
+}
+
+.rp-adoption-panel-content {
+  width: min(900px, 100%);
+  margin: 0 auto;
+}
+
+.rp-adoption-panel-label {
+  margin-bottom: 17px;
+  color: #d6dfff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.rp-adoption-panel h3 {
+  max-width: 790px;
+  color: #fff;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(2rem, 5.4vw, 4rem);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.04em;
+}
+
+.rp-adoption-description {
+  max-width: 760px;
+  margin-top: 30px;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: clamp(16px, 2vw, 19px);
+  line-height: 1.8;
+}
+
+.rp-adoption-link {
+  display: inline-flex;
+  min-height: 54px;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 34px;
+  padding: 13px 21px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 6px;
+  background: #fff;
+  color: #2444d0;
+  font-size: 16px;
+  font-weight: 700;
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.rp-adoption-link:hover {
+  transform: translateY(-2px);
+  background: #e9a16d;
+  border-color: #e9a16d;
+  color: #101a4a;
+}
+
+.rp-adoption-link:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+}
+
+@media (max-width: 650px) {
+  .rp-adoption-intro {
+    width: calc(100% - 40px);
+    padding: 48px 0 54px;
+  }
+
+  .rp-adoption-intro h2 {
+    font-size: clamp(1.9rem, 8vw, 2.5rem);
+  }
+
+  .rp-adoption-lead {
+    margin-top: 17px;
+    font-size: 17px;
+  }
+
+  .rp-adoption-image {
+    max-height: none;
+    aspect-ratio: 1.25 / 1;
+  }
+
+  .rp-adoption-image img {
+    object-position: 50% 44%;
+  }
+
+  .rp-adoption-panel {
+    padding: 54px 24px 62px;
+  }
+
+  .rp-adoption-panel h3 {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+    line-height: 1.25;
+  }
+
+  .rp-adoption-description {
+    margin-top: 24px;
+    font-size: 16px;
+    line-height: 1.75;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rp-adoption-link {
+    transition: none;
+  }
+}

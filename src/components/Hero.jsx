@@ -95,6 +95,7 @@ export default function Hero({ headerOnly = false }) {
             className="robot-menu-button"
             onClick={() => setMenuOpen(true)}
             aria-label="Open menu"
+            aria-expanded={menuOpen}
           >
             <span>Menu</span>
             <Menu size={21} />
@@ -258,7 +259,7 @@ export default function Hero({ headerOnly = false }) {
           >
 
             <span>
-              Open an account
+              {t.openAccount}
             </span>
 
             <span className="robot-main-button-circle">
