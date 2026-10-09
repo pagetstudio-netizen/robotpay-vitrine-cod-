@@ -1,5 +1,5 @@
 import { useLanguage } from "../i18n.jsx";
-import { Link } from "react-router-dom";
+import { getSeoPath } from "../data/seoRoutes.js";
 import Hero from "./Hero";
 import "./ContactPage.css";
 
@@ -133,9 +133,9 @@ export default function ContactPage() {
       <footer className="rp-contact-footer">
         <span>© 2026 RobotPay</span>
         <nav aria-label={current.channelsLabel}>
-          <Link to="/">{current.footer.home}</Link>
-          <Link to="/countries">{current.footer.countries}</Link>
-          <Link to="/contact">{current.footer.contact}</Link>
+          <a href={getSeoPath(language, "home")}>{current.footer.home}</a>
+          <a href={getSeoPath(language, "countries")}>{current.footer.countries}</a>
+          <a href={getSeoPath(language, "contact")}>{current.footer.contact}</a>
         </nav>
       </footer>
     </div>

@@ -1,10 +1,9 @@
 import robotpayFooter from "../assets/robotpay-footer.png";
-import { Link } from "react-router-dom";
 import { useLanguage } from "../i18n.jsx";
+import { getSeoPath } from "../data/seoRoutes.js";
 
 import {
   ArrowUp,
-  Globe,
   Mail,
 } from "lucide-react";
 
@@ -15,11 +14,13 @@ const copy = {
     services: "Services",
     api: "API",
     contact: "Contact",
+    about: "About RobotPay",
+    countries: "Countries",
+    operators: "Payment operators",
     solutions: "Solutions",
     payin: "Payin",
     payout: "Payout",
     paymentLinks: "Payment Links",
-    international: "International platform",
     rights: "All rights reserved.",
     backToTop: "Back to top"
   },
@@ -29,11 +30,13 @@ const copy = {
     services: "Services",
     api: "API",
     contact: "Contact",
+    about: "À propos de RobotPay",
+    countries: "Pays",
+    operators: "Opérateurs de paiement",
     solutions: "Solutions",
     payin: "Encaissement",
     payout: "Versement",
     paymentLinks: "Liens de paiement",
-    international: "Plateforme internationale",
     rights: "Tous droits réservés.",
     backToTop: "Retour en haut"
   },
@@ -43,11 +46,13 @@ const copy = {
     services: "服务",
     api: "API",
     contact: "联系",
+    about: "关于 RobotPay",
+    countries: "国家",
+    operators: "支付运营商",
     solutions: "解决方案",
     payin: "收款",
     payout: "付款",
     paymentLinks: "支付链接",
-    international: "国际平台",
     rights: "版权所有。",
     backToTop: "返回顶部"
   }
@@ -56,6 +61,7 @@ const copy = {
 export default function Footer() {
   const { language } = useLanguage();
   const current = copy[language] || copy.en;
+  const seoLanguage = language === "fr" ? "fr" : "en";
 
   const scrollTop = () => {
     window.scrollTo({
@@ -73,7 +79,7 @@ export default function Footer() {
 
           <div className="rp-footer-brand">
 
-            <a href="#" className="rp-footer-logo">
+            <a href={getSeoPath(seoLanguage, "home")} className="rp-footer-logo">
               <img src={robotpayFooter} alt="RobotPay" />
             </a>
 
@@ -87,9 +93,12 @@ export default function Footer() {
 
             <div>
                <h4>{current.platform}</h4>
-               <a href="#services">{current.services}</a>
+               <a href={getSeoPath(seoLanguage, "services")}>{current.services}</a>
                <a href="#developers">{current.api}</a>
-               <Link to="/contact">{current.contact}</Link>
+               <a href={getSeoPath(seoLanguage, "countries")}>{current.countries}</a>
+               <a href={getSeoPath(seoLanguage, "operators")}>{current.operators}</a>
+               <a href={getSeoPath(seoLanguage, "about")}>{current.about}</a>
+               <a href={getSeoPath(seoLanguage, "contact")}>{current.contact}</a>
             </div>
 
             <div>
@@ -102,15 +111,12 @@ export default function Footer() {
             <div>
                <h4>{current.contact}</h4>
 
-              <Link to="/contact">
+              <a href="mailto:Hello@robotpay.com">
                 <Mail size={14} />
                 Hello@robotpay.com
-              </Link>
+              </a>
 
-              <Link to="/contact">
-                <Globe size={14} />
-                {current.international}
-              </Link>
+              <a href={getSeoPath(seoLanguage, "about")}>{current.about}</a>
             </div>
 
           </div>

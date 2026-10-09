@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useLanguage } from "../i18n.jsx";
+import { getSeoPath } from "../data/seoRoutes.js";
 import {
   Menu,
   X,
@@ -176,7 +177,7 @@ export default function Hero({ headerOnly = false }) {
               </a>
 
               <a
-                href={sectionHref("services")}
+                href={getSeoPath(language, "feature", "merchant-integration")}
                 onClick={() => setMenuOpen(false)}
               >
                 <span>04</span>
@@ -184,29 +185,41 @@ export default function Hero({ headerOnly = false }) {
                 <ArrowRight />
               </a>
 
-              <Link
-                to="/contact"
+              <a href={getSeoPath(language, "countries")} onClick={() => setMenuOpen(false)}>
+                <span>05</span>
+                {t.countries}
+                <ArrowRight />
+              </a>
+
+              <a href={getSeoPath(language, "operators")} onClick={() => setMenuOpen(false)}>
+                <span>06</span>
+                {t.operators}
+                <ArrowRight />
+              </a>
+
+              <a
+                href={getSeoPath(language, "contact")}
                 onClick={() => setMenuOpen(false)}
               >
-                <span>05</span>
+                <span>07</span>
                 {t.integrationSupport}
                 <ArrowRight />
-              </Link>
+              </a>
 
-              <Link
-                to="/about"
+              <a
+                href={getSeoPath(language, "about")}
                 onClick={() => setMenuOpen(false)}
               >
-                <span>06</span>
+                <span>08</span>
                 {t.about}
                 <ArrowRight />
-              </Link>
+              </a>
 
             </nav>
 
 
-            <Link
-              to="/contact"
+            <a
+              href={getSeoPath(language, "contact")}
               className="robot-menu-account"
               onClick={() => {
                 setMenuOpen(false);
@@ -217,7 +230,7 @@ export default function Hero({ headerOnly = false }) {
               <strong>
                 <ArrowRight size={20} />
               </strong>
-            </Link>
+            </a>
 
           </div>
 
@@ -257,8 +270,8 @@ export default function Hero({ headerOnly = false }) {
 
           {/* OPEN ACCOUNT */}
 
-          <Link
-            to="/contact"
+          <a
+            href={getSeoPath(language, "contact")}
             className="robot-main-button robot-open-account"
           >
 
@@ -270,7 +283,7 @@ export default function Hero({ headerOnly = false }) {
               <ArrowRight size={18} />
             </span>
 
-          </Link>
+          </a>
 
 
           <a

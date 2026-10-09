@@ -1,4 +1,6 @@
-# React + Vite
+# RobotPay
+
+Plesk deployment instructions: see [PLESK_DEPLOYMENT.md](./PLESK_DEPLOYMENT.md).
 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 

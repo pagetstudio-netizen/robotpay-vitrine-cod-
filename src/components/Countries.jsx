@@ -18,28 +18,8 @@ import pk from "../assets/flags/pk.svg";
 import inFlag from "../assets/flags/in.svg";
 import ph from "../assets/flags/ph.svg";
 import { useLanguage } from "../i18n.jsx";
-
-const countries = [
-  { flag: tg, name: { en: "Togo", fr: "Togo", zh: "多哥" }, code: "+228", methods: ["Moov Money", "TMoney", "Visa / Mastercard"] },
-  { flag: bj, name: { en: "Benin", fr: "Bénin", zh: "贝宁" }, code: "+229", methods: ["MTN Mobile Money", "Moov Africa"] },
-  { flag: bf, name: { en: "Burkina Faso", fr: "Burkina Faso", zh: "布基纳法索" }, code: "+226", methods: ["Moov Money", "Orange Money"] },
-  { flag: cm, name: { en: "Cameroon", fr: "Cameroun", zh: "喀麦隆" }, code: "+237", methods: ["MTN Mobile Money", "Orange Money"] },
-  { flag: cg, name: { en: "Congo Brazzaville", fr: "Congo-Brazzaville", zh: "刚果（布）" }, code: "+242", methods: ["MTN Mobile Money", "Airtel Money"] },
-  { flag: ga, name: { en: "Gabon", fr: "Gabon", zh: "加蓬" }, code: "+241", methods: ["Airtel Money", "Moov Money"] },
-  { flag: ci, name: { en: "Côte d’Ivoire", fr: "Côte d’Ivoire", zh: "科特迪瓦" }, code: "+225", methods: ["Moov Money", "MTN", "Orange Money", "Wave"] },
-  { flag: ml, name: { en: "Mali", fr: "Mali", zh: "马里" }, code: "+223", methods: ["Orange Money", "Moov Africa"] },
-  { flag: sn, name: { en: "Senegal", fr: "Sénégal", zh: "塞内加尔" }, code: "+221", methods: ["Mixx by Yas", "Orange Money", "Wave", "Free Money"] },
-  { flag: gn, name: { en: "Guinea", fr: "Guinée", zh: "几内亚" }, code: "+224", methods: ["Orange Money", "MTN Mobile Money"] },
-  { flag: cd, name: { en: "DRC", fr: "RDC", zh: "刚果（金）" }, code: "+243", methods: ["M-Pesa", "Airtel Money", "Orange Money"] },
-  { flag: gh, name: { en: "Ghana", fr: "Ghana", zh: "加纳" }, code: "+233", methods: ["MTN Mobile Money", "Vodafone Cash", "AirtelTigo"] },
-  { flag: ne, name: { en: "Niger", fr: "Niger", zh: "尼日尔" }, code: "+227", methods: ["Airtel Money", "Moov Africa"] },
-  { flag: ke, name: { en: "Kenya", fr: "Kenya", zh: "肯尼亚" }, code: "+254", methods: ["M-Pesa", "Airtel Money"] },
-  { flag: ng, name: { en: "Nigeria", fr: "Nigeria", zh: "尼日利亚" }, code: "+234", methods: ["Bank Transfer", "Cards", "USSD"] },
-  { flag: eg, name: { en: "Egypt", fr: "Égypte", zh: "埃及" }, code: "+20", methods: ["Cards", "Mobile Wallets", "Bank Transfer"] },
-  { flag: pk, name: { en: "Pakistan", fr: "Pakistan", zh: "巴基斯坦" }, code: "+92", methods: ["JazzCash", "Easypaisa", "Cards"] },
-  { flag: inFlag, name: { en: "India", fr: "Inde", zh: "印度" }, code: "+91", methods: ["UPI", "Cards", "Net Banking"] },
-  { flag: ph, name: { en: "Philippines", fr: "Philippines", zh: "菲律宾" }, code: "+63", methods: ["GCash", "Maya", "Cards"] }
-];
+import { operatorSlugByMethod, paymentMarkets } from "../data/paymentMarkets.js";
+import { getSeoPath } from "../data/seoRoutes.js";
 
 const copy = {
   en: {
@@ -87,6 +67,36 @@ const copy = {
   }
 };
 
+const flags = {
+  tg,
+  bj,
+  bf,
+  cm,
+  cg,
+  ga,
+  ci,
+  ml,
+  sn,
+  gn,
+  cd,
+  gh,
+  ne,
+  ke,
+  ng,
+  eg,
+  pk,
+  in: inFlag,
+  ph
+};
+
+function countryPath(language, slug) {
+  return getSeoPath(language, "country", slug);
+}
+
+function operatorPath(language, slug) {
+  return getSeoPath(language, "operator", slug);
+}
+
 export default function Countries() {
   const { language } = useLanguage();
   const current = copy[language] || copy.en;
@@ -108,21 +118,28 @@ export default function Countries() {
 
       <div className="rp-country-grid">
 
-        {countries.map((country) => (
-          <div className="rp-country-card" key={country.code}>
+        {paymentMarkets.map((country) => (
+          <div className="rp-country-card" key={country.slug}>
 
             <div className="rp-country-top">
 
               <div className="rp-country-name">
 
                 <img
-                  src={country.flag}
+                  src={flags[country.flagCode]}
                   alt={`${country.name[language] || country.name.en} ${current.flag}`}
                   className="rp-country-flag"
                 />
 
                 <div>
-                  <h3>{country.name[language] || country.name.en}</h3>
+                  <h3>
+                    <a
+                      href={countryPath(language, country.slug)}
+                      style={{ color: "inherit", textDecoration: "none" }}
+                    >
+                      {country.name[language] || country.name.en}
+                    </a>
+                  </h3>
                   <small>{country.code}</small>
                 </div>
 
@@ -140,7 +157,18 @@ export default function Countries() {
 
               <div>
                 {country.methods.map((method) => (
-                  <b key={method}>{current.methodNames[method] || method}</b>
+                  <b key={method}>
+                    {operatorSlugByMethod[method] ? (
+                      <a
+                        href={operatorPath(language, operatorSlugByMethod[method])}
+                        style={{ color: "inherit", textDecoration: "none" }}
+                      >
+                        {current.methodNames[method] || method}
+                      </a>
+                    ) : (
+                      current.methodNames[method] || method
+                    )}
+                  </b>
                 ))}
               </div>
 

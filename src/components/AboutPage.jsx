@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import {
   Banknote,
   CreditCard,
@@ -8,6 +7,7 @@ import {
   Receipt
 } from "lucide-react";
 import { useLanguage } from "../i18n.jsx";
+import { getSeoPath } from "../data/seoRoutes.js";
 import Hero from "./Hero";
 import Footer from "./Footer";
 import "./AboutPage.css";
@@ -192,13 +192,13 @@ export default function AboutPage() {
 
           <p className="rp-about-contact">
             {content.contact}{" "}
-            <Link to="/contact">
+            <a href={getSeoPath(language, "contact")}>
               {language === "fr"
                 ? "Contacter l’équipe"
                 : language === "zh"
                   ? "联系团队"
                   : "Contact the team"}
-            </Link>
+            </a>
           </p>
         </article>
       </main>

@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { useLanguage } from "../i18n.jsx";
+import { getSeoPath } from "../data/seoRoutes.js";
 import {
   paymentFeaturePageCopy,
   paymentFeatures
@@ -83,13 +84,13 @@ export default function PaymentFeaturePage() {
         <section className="rp-feature-support">
           <h2>{current.supportTitle}</h2>
           <p>{current.supportDescription}</p>
-          <Link
+          <a
             className="rp-feature-contact"
-            to="/contact"
+            href={getSeoPath(language, "contact")}
           >
             {current.contact}
             <span aria-hidden="true">→</span>
-          </Link>
+          </a>
         </section>
       </main>
 

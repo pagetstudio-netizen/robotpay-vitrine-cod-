@@ -1,6 +1,7 @@
 import { FaMobileAlt, FaCreditCard } from "react-icons/fa";
 
 import { useLanguage } from "../i18n.jsx";
+import { getSeoPath } from "../data/seoRoutes.js";
 import paymentsHero from "../../attached_assets/payboxbusiness-S_1791569156861.png";
 
 import tg from "../assets/flags/tg.svg";
@@ -147,7 +148,7 @@ export default function PaymentMethods() {
         </div>
 
         <a
-          href="/countries"
+          href={getSeoPath(language, "countries")}
           className="rp-view-countries"
         >
           {current.view}

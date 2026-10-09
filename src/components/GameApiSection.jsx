@@ -1,5 +1,5 @@
 import { useLanguage } from "../i18n.jsx";
-import { Link } from "react-router-dom";
+import { getSeoPath } from "../data/seoRoutes.js";
 import gameCatalog from "../assets/game-api/game-catalog.jpg";
 import gameTiles from "../assets/game-api/game-tiles.jpg";
 import "./GameApiSection.css";
@@ -90,15 +90,18 @@ export default function GameApiSection() {
           <h2 id="rp-game-api-title">{current.title}</h2>
           <p className="rp-game-api-description">{current.description}</p>
           <nav className="rp-game-api-actions" aria-label={current.actionsLabel}>
-            <a className="rp-game-api-action" href="#rp-game-api-step-1">
+            <a
+              className="rp-game-api-action"
+              href={getSeoPath(language, "feature", "game-api")}
+            >
               {current.discover}
             </a>
-            <Link
+            <a
               className="rp-game-api-action"
-              to="/contact"
+              href={getSeoPath(language, "contact")}
             >
               {current.contact}
-            </Link>
+            </a>
           </nav>
         </header>
 

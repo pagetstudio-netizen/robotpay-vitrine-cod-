@@ -9,6 +9,8 @@ const translations = {
     solutions: "Solutions",
     paymentNetwork: "Payment Network",
     paymentLinks: "Payment Links",
+    countries: "Countries",
+    operators: "Payment operators",
     apiSdk: "API & SDK",
     integrationSupport: "Support & Integration",
     about: "About RobotPay",
@@ -30,6 +32,8 @@ const translations = {
     solutions: "Solutions",
     paymentNetwork: "Réseau de paiement",
     paymentLinks: "Liens de paiement",
+    countries: "Pays",
+    operators: "Opérateurs de paiement",
     apiSdk: "API & SDK",
     integrationSupport: "Assistance et intégration",
     about: "À propos",
@@ -51,6 +55,8 @@ const translations = {
     solutions: "解决方案",
     paymentNetwork: "支付网络",
     paymentLinks: "支付链接",
+    countries: "国家",
+    operators: "支付运营商",
     apiSdk: "API 与 SDK",
     integrationSupport: "集成与支持",
     about: "关于 RobotPay",
@@ -65,17 +71,47 @@ const translations = {
   }
 };
 
+const pageMeta = {
+  en: {
+    title: "RobotPay | International payment APIs and services",
+    description:
+      "RobotPay aggregates payment technology and provides APIs and online and offline services for platforms, with USDT and D0 payments.",
+    locale: "en_US"
+  },
+  fr: {
+    title: "RobotPay | API et solutions de paiement internationales",
+    description:
+      "RobotPay agrège des technologies de paiement et propose des API et services en ligne et hors ligne aux plateformes, avec des paiements en USDT et D0.",
+    locale: "fr_FR"
+  },
+  zh: {
+    title: "RobotPay — 国际支付技术聚合平台",
+    description:
+      "RobotPay 是一家国际支付技术聚合平台，为各类平台提供支付 API 和多种线上及线下服务，并支持 USDT 和 D0 支付。",
+    locale: "zh_CN"
+  }
+};
+
 const LanguageContext = createContext(null);
 
 export function LanguageProvider({ children }) {
   const [language, setLanguage] = useState(
-    localStorage.getItem("robotpay-language") || "en"
+    localStorage.getItem("robotpay-language") || "fr"
   );
 
   const [isChangingLanguage, setIsChangingLanguage] = useState(false);
 
   useEffect(() => {
     document.documentElement.lang = language === "zh" ? "zh-CN" : language;
+
+    const meta = pageMeta[language] || pageMeta.en;
+    document.title = meta.title;
+    document.querySelector('meta[name="description"]')?.setAttribute("content", meta.description);
+    document.querySelector('meta[property="og:title"]')?.setAttribute("content", meta.title);
+    document.querySelector('meta[property="og:description"]')?.setAttribute("content", meta.description);
+    document.querySelector('meta[property="og:locale"]')?.setAttribute("content", meta.locale);
+    document.querySelector('meta[name="twitter:title"]')?.setAttribute("content", meta.title);
+    document.querySelector('meta[name="twitter:description"]')?.setAttribute("content", meta.description);
   }, [language]);
 
   const changeLanguage = (newLanguage) => {

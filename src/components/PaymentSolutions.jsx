@@ -1,5 +1,5 @@
 import { useLanguage } from "../i18n.jsx";
-import { Link } from "react-router-dom";
+import { getSeoPath } from "../data/seoRoutes.js";
 
 import westpay from "../assets/icons/westpay.png";
 import bank from "../assets/icons/bank.png";
@@ -289,13 +289,13 @@ export default function PaymentSolutions() {
                   {card.description}
                 </p>
 
-                <Link
+                <a
                   className="rp-solution-link"
-                  to="/contact"
+                  href={getSeoPath(language, "contact")}
                 >
                   {current.learn}
                   <span>→</span>
-                </Link>
+                </a>
 
               </article>
             );

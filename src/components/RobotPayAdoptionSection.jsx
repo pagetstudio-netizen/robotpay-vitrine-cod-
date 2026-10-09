@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
 import { useLanguage } from "../i18n.jsx";
+import { getSeoPath } from "../data/seoRoutes.js";
 import retailFamilyImage from "../../attached_assets/wholesale_img_1791566885250.png";
 import "./RobotPayAdoptionSection.css";
 
@@ -69,10 +69,10 @@ export default function RobotPayAdoptionSection() {
           <p className="rp-adoption-panel-label">{current.panelLabel}</p>
           <h3>{current.panelTitle}</h3>
           <p className="rp-adoption-description">{current.description}</p>
-          <Link className="rp-adoption-link" to="/contact">
+          <a className="rp-adoption-link" href={getSeoPath(language, "contact")}>
             <span>{current.learnMore}</span>
             <ArrowRight size={19} aria-hidden="true" />
-          </Link>
+          </a>
         </div>
       </div>
     </section>
