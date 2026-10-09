@@ -57,7 +57,7 @@ export default function Footer() {
 
               <Link to="/contact">
                 <Mail size={14} />
-                finaceswei@westpay.cfd
+                Hello@robotpay.com
               </Link>
 
               <Link to="/contact">

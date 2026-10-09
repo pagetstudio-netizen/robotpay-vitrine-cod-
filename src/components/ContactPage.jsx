@@ -24,8 +24,8 @@ const contactChannels = [
   },
   {
     key: "general",
-    href: "mailto:finaceswei@westpay.cfd",
-    value: "finaceswei@westpay.cfd",
+    href: "mailto:Hello@robotpay.com",
+    value: "Hello@robotpay.com",
     external: false
   }
 ];
