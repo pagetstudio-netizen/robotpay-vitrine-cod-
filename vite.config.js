@@ -5,8 +5,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: "0.0.0.0",
-    allowedHosts: [
-      "heated-snapshot-emperor-adopt.trycloudflare.com"
-    ]
+    port: 5000,
+    strictPort: true,
+    allowedHosts: true
   }
 });

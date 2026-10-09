@@ -5,8 +5,10 @@ import Hero from "./components/Hero";
 import Solutions from "./components/Solutions";
 import PaymentMethods from "./components/PaymentMethods";
 import PaymentSolutions from "./components/PaymentSolutions";
+import SendReceivePayments from "./components/SendReceivePayments";
+import PaymentFeaturePage from "./components/PaymentFeaturePage";
 import Infrastructure from "./components/Infrastructure";
-import Showcase from "./components/Showcase";
+import GameApiSection from "./components/GameApiSection";
 import GlobalPayments from "./components/GlobalPayments";
 import CTA from "./components/CTA";
 import Footer from "./components/Footer";
@@ -77,8 +79,9 @@ function Home() {
         <Solutions />
         <PaymentMethods />
         <PaymentSolutions />
+        <SendReceivePayments />
         <Infrastructure />
-        <Showcase />
+        <GameApiSection />
         <GlobalPayments />
 
         {/* =====================================
@@ -134,6 +137,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/countries" element={<CountriesPage />} />
+          <Route path="/features/:slug" element={<PaymentFeaturePage />} />
         </Routes>
       </BrowserRouter>
     </LanguageProvider>
