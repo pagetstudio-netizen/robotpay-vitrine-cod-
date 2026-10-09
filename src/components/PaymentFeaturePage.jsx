@@ -91,15 +91,13 @@ export default function PaymentFeaturePage() {
         </section>
 
         <div className="rp-feature-detail-actions">
-          <a
+          <Link
             className="rp-feature-contact"
-            href="https://t.me/geeorbotpay"
-            target="_blank"
-            rel="noopener noreferrer"
+            to="/contact"
           >
             {current.contact}
             <span aria-hidden="true">→</span>
-          </a>
+          </Link>
           <Link className="rp-feature-back-mobile" to="/">
             {current.backHome}
           </Link>

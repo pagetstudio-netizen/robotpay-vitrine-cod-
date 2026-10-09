@@ -11,6 +11,7 @@ import Infrastructure from "./components/Infrastructure";
 import GameApiSection from "./components/GameApiSection";
 import Footer from "./components/Footer";
 import Countries from "./components/Countries";
+import ContactPage from "./components/ContactPage";
 import { LanguageProvider, useLanguage } from "./i18n";
 
 function LanguageIntro() {
@@ -105,6 +106,7 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="/countries" element={<CountriesPage />} />
           <Route path="/features/:slug" element={<PaymentFeaturePage />} />
         </Routes>

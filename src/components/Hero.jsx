@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { useLanguage } from "../i18n.jsx";
 import {
   Menu,
@@ -9,13 +10,13 @@ import {
   Receipt
 } from "lucide-react";
 
-import supportImage from "../assets/account-support.jpeg";
-
-export default function Hero() {
+export default function Hero({ headerOnly = false }) {
   const { language, changeLanguage, t } = useLanguage();
+  const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [showAccountModal, setShowAccountModal] = useState(false);
   const [languageOpen, setLanguageOpen] = useState(false);
+  const sectionHref = (section) =>
+    `${location.pathname === "/" ? "" : "/"}#${section}`;
   const languageLabels = {
     en: "English",
     fr: "Français",
@@ -34,13 +35,13 @@ export default function Hero() {
 
       <header className="robot-topbar">
 
-        <a href="#" className="robot-top-logo">
+        <Link to="/" className="robot-top-logo">
           <img
             src="https://res.cloudinary.com/fa719lho/image/upload/v1787668181/robotpay-logo_iaa0dj.jpg"
             alt="RobotPay"
           />
           <span>RobotPay</span>
-        </a>
+        </Link>
 
         <div className="robot-top-actions">
 
@@ -143,7 +144,7 @@ export default function Hero() {
             <nav className="robot-menu-links">
 
               <a
-                href="#services"
+                href={sectionHref("services")}
                 onClick={() => setMenuOpen(false)}
               >
                 <span>01</span>
@@ -152,7 +153,7 @@ export default function Hero() {
               </a>
 
               <a
-                href="#payments"
+                href={sectionHref("payments")}
                 onClick={() => setMenuOpen(false)}
               >
                 <span>02</span>
@@ -161,7 +162,7 @@ export default function Hero() {
               </a>
 
               <a
-                href="#services"
+                href={sectionHref("services")}
                 onClick={() => setMenuOpen(false)}
               >
                 <span>03</span>
@@ -170,7 +171,7 @@ export default function Hero() {
               </a>
 
               <a
-                href="#services"
+                href={sectionHref("services")}
                 onClick={() => setMenuOpen(false)}
               >
                 <span>04</span>
@@ -179,7 +180,7 @@ export default function Hero() {
               </a>
 
               <a
-                href="#services"
+                href={sectionHref("services")}
                 onClick={() => setMenuOpen(false)}
               >
                 <span>05</span>
@@ -187,24 +188,23 @@ export default function Hero() {
                 <ArrowRight />
               </a>
 
-              <a
-                href="#contact"
+              <Link
+                to="/contact"
                 onClick={() => setMenuOpen(false)}
               >
                 <span>06</span>
                 {t.integrationSupport}
                 <ArrowRight />
-              </a>
+              </Link>
 
             </nav>
 
 
-            <button
-              type="button"
+            <Link
+              to="/contact"
               className="robot-menu-account"
               onClick={() => {
                 setMenuOpen(false);
-                setShowAccountModal(true);
               }}
             >
               <span>{t.openAccount}</span>
@@ -212,7 +212,7 @@ export default function Hero() {
               <strong>
                 <ArrowRight size={20} />
               </strong>
-            </button>
+            </Link>
 
           </div>
 
@@ -227,6 +227,8 @@ export default function Hero() {
       </div>
 
 
+      {!headerOnly && (
+        <>
       {/* HERO CONTENT */}
 
       <div className="robot-hero-content">
@@ -250,10 +252,9 @@ export default function Hero() {
 
           {/* OPEN ACCOUNT */}
 
-          <button
-            type="button"
+          <Link
+            to="/contact"
             className="robot-main-button robot-open-account"
-            onClick={() => setShowAccountModal(true)}
           >
 
             <span>
@@ -264,7 +265,7 @@ export default function Hero() {
               <ArrowRight size={18} />
             </span>
 
-          </button>
+          </Link>
 
 
           <a
@@ -358,123 +359,7 @@ export default function Hero() {
         </div>
 
       </div>
-
-
-      {/* ACCOUNT MODAL */}
-
-      {showAccountModal && (
-
-        <div
-          className="robot-account-overlay"
-          onClick={() => setShowAccountModal(false)}
-        >
-
-          <div
-            className="robot-account-modal"
-            onClick={(e) => e.stopPropagation()}
-          >
-
-            <button
-              type="button"
-              className="robot-account-close"
-              onClick={() => setShowAccountModal(false)}
-              aria-label="Close"
-            >
-              <X size={19} />
-            </button>
-
-
-            <img
-              src={supportImage}
-              alt="RobotPay support team"
-              className="robot-account-image"
-            />
-
-
-            <div className="robot-telegram-icon">
-
-              <svg
-                viewBox="0 0 24 24"
-                width="30"
-                height="30"
-                fill="none"
-              >
-
-                <path
-                  d="M21.5 3.5L18.3 20c-.24 1.17-.9 1.46-1.82.91l-5.02-3.7-2.42 2.33c-.27.27-.5.5-1.02.5l.36-5.12 9.32-8.42c.4-.36-.09-.56-.62-.2L5.55 13.2.58 11.65c-1.08-.34-1.1-1.08.23-1.57L20.2 2.46c.9-.33 1.69.2 1.3 1.04Z"
-                  fill="currentColor"
-                />
-
-              </svg>
-
-            </div>
-
-
-            <div className="robot-account-modal-label">
-              ROBOTPAY
-            </div>
-
-
-            <h2>
-              Open an account
-            </h2>
-
-
-            <p className="robot-account-modal-subtitle">
-              Ready to start accepting payments?
-            </p>
-
-
-            <p className="robot-account-modal-description">
-              Contact our team on Telegram to open your
-              RobotPay merchant account and get started.
-            </p>
-
-
-            <a
-              href="https://t.me/geeorbotpay"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="robot-telegram-button"
-            >
-
-              <svg
-                viewBox="0 0 24 24"
-                width="21"
-                height="21"
-                fill="none"
-              >
-
-                <path
-                  d="M21.5 3.5L18.3 20c-.24 1.17-.9 1.46-1.82.91l-5.02-3.7-2.42 2.33c-.27.27-.5.5-1.02.5l.36-5.12 9.32-8.42c.4-.36-.09-.56-.62-.2L5.55 13.2.58 11.65c-1.08-.34-1.1-1.08.23-1.57L20.2 2.46c.9-.33 1.69.2 1.3 1.04Z"
-                  fill="currentColor"
-                />
-
-              </svg>
-
-              <span>
-                Continue on Telegram
-              </span>
-
-              <ArrowRight size={18} />
-
-            </a>
-
-
-            <div className="robot-account-secure">
-
-              <span>
-                ●
-              </span>
-
-              Secure contact with RobotPay
-
-            </div>
-
-          </div>
-
-        </div>
-
+        </>
       )}
 
     </section>

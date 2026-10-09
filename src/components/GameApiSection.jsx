@@ -1,4 +1,5 @@
 import { useLanguage } from "../i18n.jsx";
+import { Link } from "react-router-dom";
 import gameCatalog from "../assets/game-api/game-catalog.jpg";
 import gameTiles from "../assets/game-api/game-tiles.jpg";
 import "./GameApiSection.css";
@@ -92,14 +93,12 @@ export default function GameApiSection() {
             <a className="rp-game-api-action" href="#rp-game-api-step-1">
               {current.discover}
             </a>
-            <a
+            <Link
               className="rp-game-api-action"
-              href="https://t.me/geeorbotpay"
-              target="_blank"
-              rel="noopener noreferrer"
+              to="/contact"
             >
               {current.contact}
-            </a>
+            </Link>
           </nav>
         </header>
 

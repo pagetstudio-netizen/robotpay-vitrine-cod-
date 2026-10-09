@@ -1,4 +1,5 @@
 import { useLanguage } from "../i18n.jsx";
+import { Link } from "react-router-dom";
 
 import westpay from "../assets/icons/westpay.png";
 import bank from "../assets/icons/bank.png";
@@ -288,15 +289,13 @@ export default function PaymentSolutions() {
                   {card.description}
                 </p>
 
-                <a
+                <Link
                   className="rp-solution-link"
-                  href="https://t.me/geeorbotpay"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  to="/contact"
                 >
                   {current.learn}
                   <span>→</span>
-                </a>
+                </Link>
 
               </article>
             );

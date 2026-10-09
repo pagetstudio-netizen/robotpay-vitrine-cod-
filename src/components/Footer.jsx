@@ -1,4 +1,5 @@
 import robotpayFooter from "../assets/robotpay-footer.png";
+import { Link } from "react-router-dom";
 
 import {
   ArrowUp,
@@ -41,7 +42,7 @@ export default function Footer() {
               <h4>Platform</h4>
               <a href="#services">Services</a>
               <a href="#developers">API</a>
-              <a href="#contact">Contact</a>
+              <Link to="/contact">Contact</Link>
             </div>
 
             <div>
@@ -54,15 +55,15 @@ export default function Footer() {
             <div>
               <h4>Contact</h4>
 
-              <a href="mailto:hello@robotpay.com">
+              <Link to="/contact">
                 <Mail size={14} />
-                hello@robotpay.com
-              </a>
+                finaceswei@westpay.cfd
+              </Link>
 
-              <a href="#contact">
+              <Link to="/contact">
                 <MapPin size={14} />
                 Africa
-              </a>
+              </Link>
             </div>
 
           </div>
