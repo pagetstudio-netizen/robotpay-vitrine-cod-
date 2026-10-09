@@ -198,6 +198,15 @@ export default function Hero({ headerOnly = false }) {
                 <ArrowRight />
               </Link>
 
+              <Link
+                to="/about"
+                onClick={() => setMenuOpen(false)}
+              >
+                <span>07</span>
+                {t.about}
+                <ArrowRight />
+              </Link>
+
             </nav>
 
 

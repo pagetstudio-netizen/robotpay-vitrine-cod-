@@ -13,6 +13,7 @@ import RobotPayAdoptionSection from "./components/RobotPayAdoptionSection";
 import Footer from "./components/Footer";
 import Countries from "./components/Countries";
 import ContactPage from "./components/ContactPage";
+import AboutPage from "./components/AboutPage";
 import { LanguageProvider, useLanguage } from "./i18n";
 
 function LanguageIntro() {
@@ -110,6 +111,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/countries" element={<CountriesPage />} />
           <Route path="/features/:slug" element={<PaymentFeaturePage />} />
         </Routes>

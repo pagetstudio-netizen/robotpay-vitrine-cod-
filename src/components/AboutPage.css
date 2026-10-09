@@ -1,0 +1,145 @@
+.rp-about-page {
+  min-height: 100vh;
+  background: #fff;
+  color: #252830;
+}
+
+.rp-about-banner {
+  position: relative;
+  overflow: hidden;
+  padding: 44px 24px;
+  background:
+    radial-gradient(circle at 82% 30%, rgba(255, 255, 255, .14) 0 1px, transparent 2px) 0 0 / 38px 38px,
+    linear-gradient(112deg, #203fc7, #3157f5 68%, #267fdb);
+  color: #fff;
+}
+
+.rp-about-banner::after {
+  position: absolute;
+  top: -100px;
+  right: 9%;
+  width: 310px;
+  height: 310px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 34px rgba(255, 255, 255, .035),
+    0 0 0 70px rgba(255, 255, 255, .025);
+  content: "";
+  pointer-events: none;
+}
+
+.rp-about-banner-inner {
+  position: relative;
+  z-index: 1;
+  width: min(940px, 100%);
+  margin: 0 auto;
+}
+
+.rp-about-banner-inner > p {
+  margin: 0 0 10px;
+  color: rgba(255, 255, 255, .78);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.rp-about-banner h1 {
+  max-width: 760px;
+  margin: 0;
+  color: #fff;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(30px, 5vw, 46px);
+  font-weight: 800;
+  line-height: 1.16;
+  letter-spacing: -.04em;
+}
+
+.rp-about-content {
+  width: min(900px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 36px 0 76px;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.rp-about-content p {
+  margin: 0 0 18px;
+}
+
+.rp-about-content .rp-about-intro {
+  margin-bottom: 30px;
+  color: #242832;
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+.rp-about-content h2 {
+  margin: 28px 0 12px;
+  color: #1c2230;
+  font-family: "Manrope", sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.rp-about-services {
+  margin: 0 0 26px;
+  padding-left: 25px;
+}
+
+.rp-about-services li {
+  margin: 0 0 10px;
+  padding-left: 3px;
+}
+
+.rp-about-services li::marker {
+  color: #3157f5;
+}
+
+.rp-about-services strong {
+  color: #252a35;
+}
+
+.rp-about-contact {
+  margin-top: 30px !important;
+  font-weight: 700;
+}
+
+.rp-about-contact a {
+  color: #3157f5;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.rp-about-contact a:focus-visible {
+  border-radius: 2px;
+  outline: 2px solid #3157f5;
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .rp-about-banner {
+    padding: 34px 20px;
+  }
+
+  .rp-about-banner h1 {
+    font-size: clamp(30px, 8vw, 38px);
+  }
+
+  .rp-about-content {
+    width: calc(100% - 40px);
+    padding: 28px 0 58px;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .rp-about-content .rp-about-intro {
+    font-size: 17px;
+  }
+
+  .rp-about-content h2 {
+    margin-top: 25px;
+    font-size: 18px;
+  }
+}
