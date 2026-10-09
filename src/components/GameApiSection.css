@@ -167,9 +167,13 @@
   grid-row: 1;
 }
 
-.rp-game-api-image-catalog img,
-.rp-game-api-image-games img {
+.rp-game-api-image-catalog img {
   object-fit: cover;
+}
+
+.rp-game-api-image-games img {
+  object-fit: contain;
+  background: #f6f8f7;
 }
 
 .rp-game-api-image-games {
