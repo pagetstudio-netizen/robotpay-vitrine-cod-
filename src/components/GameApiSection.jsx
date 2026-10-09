@@ -1,103 +1,82 @@
 import { useLanguage } from "../i18n.jsx";
-import gameLoginFlow from "../assets/game-api/game-login-flow.png";
-import gameDepositFlow from "../assets/game-api/game-deposit-flow.png";
 import gameCatalog from "../assets/game-api/game-catalog.jpg";
 import gameTiles from "../assets/game-api/game-tiles.jpg";
 import "./GameApiSection.css";
 
 const copy = {
   en: {
-    label: "GAMING API",
-    title: "A game API with a technical team ready to help.",
+    title: "A video game API with a technical team ready to help.",
     description:
-      "Connect your platform to our game API. Our technical team can guide you through the integration and answer your questions.",
-    benefits: [
+      "We offer a video game API and a technical team to support you throughout integration.",
+    discover: "Explore the API",
+    contact: "Talk to our team",
+    actionsLabel: "Game API links",
+    steps: [
       {
-        title: "A dedicated game API",
-        description: "Bring a gaming offer to your platform through our API."
+        title: "Connect your platform to the game API.",
+        description: "Our team can help you prepare the integration for your project."
       },
       {
-        title: "Guidance during integration",
-        description: "Get help from our technical team at every step."
+        title: "Present games to your users.",
+        description: "Highlight the games that fit your offer."
       },
       {
-        title: "A team by your side",
-        description: "We are ready to answer your integration questions."
+        title: "Get technical support.",
+        description: "Our technical team is ready to help and answer your questions."
       }
     ],
-    contact: "Talk to our technical team",
-    galleryLabel: "Examples of game and payment experiences",
-    images: {
-      catalog: "GameBrain game catalog",
-      games: "A selection of video games",
-      login: "OKPay account sign-in screen",
-      deposit: "OKPay payment and deposit screen"
-    }
+    catalogAlt: "Video game catalog",
+    gamesAlt: "A selection of video games"
   },
   fr: {
-    label: "API GAMING",
-    title: "Une API de jeux vidéo, avec une équipe technique prête à vous aider.",
+    title: "Une API de jeux vidéo avec une équipe technique prête à vous aider.",
     description:
-      "Connectez votre plateforme à notre API de jeux. Notre équipe technique vous accompagne dans l’intégration et reste disponible pour répondre à vos questions.",
-    benefits: [
+      "Nous proposons une API de jeux vidéo et une équipe technique pour vous accompagner dans son intégration.",
+    discover: "Découvrir l’API",
+    contact: "Parler à l’équipe",
+    actionsLabel: "Liens de l’API de jeux",
+    steps: [
       {
-        title: "Une API dédiée aux jeux",
-        description: "Intégrez une offre gaming à votre plateforme grâce à notre API."
+        title: "Connectez votre plateforme à l’API de jeux.",
+        description: "Notre équipe vous accompagne dans la préparation de l’intégration selon votre projet."
       },
       {
-        title: "Un accompagnement à l’intégration",
-        description: "Bénéficiez de l’aide de notre équipe technique à chaque étape."
+        title: "Présentez des jeux à vos utilisateurs.",
+        description: "Mettez en avant les jeux qui correspondent à votre offre."
       },
       {
-        title: "Une équipe à vos côtés",
-        description: "Nous sommes disponibles pour répondre à vos questions sur l’intégration."
+        title: "Profitez d’un accompagnement technique.",
+        description: "Notre équipe est prête à vous aider et à répondre à vos questions."
       }
     ],
-    contact: "Parler à l’équipe technique",
-    galleryLabel: "Exemples d’expériences de jeu et de paiement",
-    images: {
-      catalog: "Catalogue de jeux GameBrain",
-      games: "Sélection de jeux vidéo",
-      login: "Écran de connexion OKPay",
-      deposit: "Écran de paiement et de dépôt OKPay"
-    }
+    catalogAlt: "Catalogue de jeux vidéo",
+    gamesAlt: "Sélection de jeux vidéo"
   },
   zh: {
-    label: "游戏 API",
-    title: "游戏 API 与随时为您提供帮助的技术团队。",
+    title: "游戏 API 与随时提供帮助的技术团队。",
     description:
-      "将您的平台连接到我们的游戏 API。我们的技术团队可以协助您完成集成并解答问题。",
-    benefits: [
+      "我们提供游戏 API，并由技术团队协助您完成集成。",
+    discover: "了解游戏 API",
+    contact: "联系技术团队",
+    actionsLabel: "游戏 API 链接",
+    steps: [
       {
-        title: "专属游戏 API",
-        description: "通过我们的 API 将游戏服务接入您的平台。"
+        title: "将您的平台连接到游戏 API。",
+        description: "我们的团队可以协助您为项目准备集成。"
       },
       {
-        title: "集成指导",
-        description: "我们的技术团队会在集成过程中为您提供帮助。"
+        title: "向用户展示游戏。",
+        description: "展示适合您业务的游戏内容。"
       },
       {
-        title: "技术团队支持",
-        description: "如有集成问题，我们随时为您解答。"
+        title: "获得技术支持。",
+        description: "我们的技术团队随时准备为您提供帮助并解答问题。"
       }
     ],
-    contact: "联系技术团队",
-    galleryLabel: "游戏与支付体验示例",
-    images: {
-      catalog: "GameBrain 游戏目录",
-      games: "电子游戏精选",
-      login: "OKPay 账户登录界面",
-      deposit: "OKPay 支付与充值界面"
-    }
+    catalogAlt: "电子游戏目录",
+    gamesAlt: "电子游戏精选"
   }
 };
-
-const galleryImages = [
-  { key: "catalog", src: gameCatalog, className: "catalog" },
-  { key: "games", src: gameTiles, className: "games" },
-  { key: "login", src: gameLoginFlow, className: "login" },
-  { key: "deposit", src: gameDepositFlow, className: "deposit" }
-];
 
 export default function GameApiSection() {
   const { language } = useLanguage();
@@ -106,56 +85,56 @@ export default function GameApiSection() {
   return (
     <section className="rp-game-api-section" aria-labelledby="rp-game-api-title">
       <div className="rp-game-api-inner">
-        <div className="rp-game-api-copy">
-          <span className="rp-game-api-label">{current.label}</span>
+        <header className="rp-game-api-header">
           <h2 id="rp-game-api-title">{current.title}</h2>
           <p className="rp-game-api-description">{current.description}</p>
-
-          <ul className="rp-game-api-benefits">
-            {current.benefits.map((benefit, index) => (
-              <li key={benefit.title}>
-                <span className="rp-game-api-number">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <span>
-                  <strong>{benefit.title}</strong>
-                  <span className="rp-game-api-benefit-copy">
-                    {benefit.description}
-                  </span>
-                </span>
-              </li>
-            ))}
-          </ul>
-
-          <a
-            className="rp-game-api-cta"
-            href="https://t.me/geeorbotpay"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {current.contact}
-            <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-
-        <div
-          className="rp-game-api-gallery"
-          role="group"
-          aria-label={current.galleryLabel}
-        >
-          {galleryImages.map((image) => (
-            <figure
-              className={`rp-game-api-image rp-game-api-image-${image.className}`}
-              key={image.key}
+          <nav className="rp-game-api-actions" aria-label={current.actionsLabel}>
+            <a className="rp-game-api-action" href="#rp-game-api-step-1">
+              {current.discover}
+            </a>
+            <a
+              className="rp-game-api-action"
+              href="https://t.me/geeorbotpay"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <img
-                src={image.src}
-                alt={current.images[image.key]}
-                loading="lazy"
-              />
-              <figcaption>{current.images[image.key]}</figcaption>
-            </figure>
-          ))}
+              {current.contact}
+            </a>
+          </nav>
+        </header>
+
+        <figure className="rp-game-api-visual rp-game-api-visual-catalog">
+          <img src={gameCatalog} alt={current.catalogAlt} loading="lazy" />
+        </figure>
+
+        <div className="rp-game-api-steps">
+          <article className="rp-game-api-step" id="rp-game-api-step-1">
+            <span className="rp-game-api-step-number" aria-hidden="true">1</span>
+            <div>
+              <h3>{current.steps[0].title}</h3>
+              <p>{current.steps[0].description}</p>
+            </div>
+          </article>
+
+          <figure className="rp-game-api-visual rp-game-api-visual-games">
+            <img src={gameTiles} alt={current.gamesAlt} loading="lazy" />
+          </figure>
+
+          <article className="rp-game-api-step">
+            <span className="rp-game-api-step-number" aria-hidden="true">2</span>
+            <div>
+              <h3>{current.steps[1].title}</h3>
+              <p>{current.steps[1].description}</p>
+            </div>
+          </article>
+
+          <article className="rp-game-api-step">
+            <span className="rp-game-api-step-number" aria-hidden="true">3</span>
+            <div>
+              <h3>{current.steps[2].title}</h3>
+              <p>{current.steps[2].description}</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
