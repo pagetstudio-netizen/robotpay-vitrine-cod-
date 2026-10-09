@@ -1,0 +1,1 @@
+- [Screenshot fidelity](screenshot-fidelity.md) — preserve the reference layout and content order while adapting RobotPay branding; don’t replace it with generic cards.
