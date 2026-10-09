@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useEffect, useState } from "react";
 
 import Hero from "./components/Hero";
 import Solutions from "./components/Solutions";
@@ -14,63 +13,7 @@ import Footer from "./components/Footer";
 import Countries from "./components/Countries";
 import ContactPage from "./components/ContactPage";
 import AboutPage from "./components/AboutPage";
-import { LanguageProvider, useLanguage } from "./i18n";
-
-function LanguageIntro() {
-  const { changeLanguage } = useLanguage();
-  const [showPopup, setShowPopup] = useState(false);
-
-  useEffect(() => {
-    // Le site commence toujours en chinois
-    changeLanguage("zh");
-
-    // Attendre 7 secondes avant d'afficher l'animation
-    const showTimer = setTimeout(() => {
-      setShowPopup(true);
-    }, 7000);
-
-    // Après l'animation, revenir automatiquement en anglais
-    const languageTimer = setTimeout(() => {
-      changeLanguage("en");
-      localStorage.setItem("robotpay-language", "en");
-    }, 10500);
-
-    // Retirer le popup après l'animation
-    const hideTimer = setTimeout(() => {
-      setShowPopup(false);
-    }, 11000);
-
-    return () => {
-      clearTimeout(showTimer);
-      clearTimeout(languageTimer);
-      clearTimeout(hideTimer);
-    };
-  }, []);
-
-  if (!showPopup) return null;
-
-  return (
-    <div className="rp-language-intro">
-      <div className="rp-language-glow"></div>
-
-      <div className="rp-language-popup">
-        <div className="rp-language-logo-wrap">
-          <img
-            src="https://res.cloudinary.com/fa719lho/image/upload/v1787668181/robotpay-logo_iaa0dj.jpg"
-            alt="WestPay"
-          />
-        </div>
-
-        <div className="rp-language-line"></div>
-
-        <div className="rp-language-text">
-          <strong>WestPay</strong>
-          <span>Switching language...</span>
-        </div>
-      </div>
-    </div>
-  );
-}
+import { LanguageProvider } from "./i18n";
 
 function Home() {
   return (
@@ -105,8 +48,6 @@ function CountriesPage() {
 export default function App() {
   return (
     <LanguageProvider>
-      <LanguageIntro />
-
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />

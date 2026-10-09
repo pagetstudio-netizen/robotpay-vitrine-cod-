@@ -1,13 +1,31 @@
 import { Link } from "react-router-dom";
+import {
+  Banknote,
+  CreditCard,
+  DollarSign,
+  Gem,
+  Landmark,
+  Receipt
+} from "lucide-react";
 import { useLanguage } from "../i18n.jsx";
 import Hero from "./Hero";
 import Footer from "./Footer";
 import "./AboutPage.css";
 
+const bannerMarks = [
+  { Icon: Gem, className: "rp-about-mark-gem-left" },
+  { Icon: Banknote, className: "rp-about-mark-note" },
+  { Icon: DollarSign, className: "rp-about-mark-dollar-top" },
+  { Icon: Gem, className: "rp-about-mark-gem-right" },
+  { Icon: CreditCard, className: "rp-about-mark-card" },
+  { Icon: DollarSign, className: "rp-about-mark-dollar-bottom" },
+  { Icon: Receipt, className: "rp-about-mark-receipt" },
+  { Icon: Landmark, className: "rp-about-mark-bank" }
+];
+
 const aboutCopy = {
   en: {
-    eyebrow: "ABOUT ROBOTPAY",
-    title: "Payment technology for platforms everywhere.",
+    title: "What is RobotPay?",
     intro:
       "RobotPay is an international payment technology aggregator. We provide payment APIs and a range of online and offline services for platforms across different categories, with support for USDT and D0 payments.",
     platformTitle: "One platform for connected payment services",
@@ -50,8 +68,7 @@ const aboutCopy = {
       "Questions about a service or integration? Contact the RobotPay team."
   },
   fr: {
-    eyebrow: "À PROPOS DE ROBOTPAY",
-    title: "Des solutions de paiement pour toutes les plateformes.",
+    title: "Qu’est-ce que RobotPay ?",
     intro:
       "RobotPay est un agrégateur international de technologies de paiement. Nous proposons des API de paiement et différents services en ligne et hors ligne pour des plateformes de toutes catégories, avec des paiements en USDT et D0.",
     platformTitle: "Une plateforme pour connecter vos paiements",
@@ -94,8 +111,7 @@ const aboutCopy = {
       "Une question sur un service ou une intégration ? Contactez l’équipe RobotPay."
   },
   zh: {
-    eyebrow: "关于 ROBOTPAY",
-    title: "为各类平台提供支付服务",
+    title: "什么是 RobotPay？",
     intro:
       "RobotPay 是一家国际支付技术聚合平台，为各类平台提供支付 API 和多种线上及线下服务，并支持 USDT 和 D0 支付。",
     platformTitle: "一个平台，连接多种支付服务",
@@ -142,8 +158,14 @@ export default function AboutPage() {
 
       <main>
         <section className="rp-about-banner" aria-labelledby="rp-about-title">
+          <div className="rp-about-banner-art" aria-hidden="true">
+            {bannerMarks.map(({ Icon, className }) => (
+              <span className={className} key={className}>
+                <Icon aria-hidden="true" />
+              </span>
+            ))}
+          </div>
           <div className="rp-about-banner-inner">
-            <p>{content.eyebrow}</p>
             <h1 id="rp-about-title">{content.title}</h1>
           </div>
         </section>

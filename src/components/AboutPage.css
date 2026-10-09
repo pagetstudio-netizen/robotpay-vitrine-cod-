@@ -6,27 +6,91 @@
 
 .rp-about-banner {
   position: relative;
+  display: flex;
+  min-height: 164px;
+  align-items: center;
   overflow: hidden;
-  padding: 44px 24px;
-  background:
-    radial-gradient(circle at 82% 30%, rgba(255, 255, 255, .14) 0 1px, transparent 2px) 0 0 / 38px 38px,
-    linear-gradient(112deg, #203fc7, #3157f5 68%, #267fdb);
+  padding: 30px 20px;
+  background: #8063a5;
   color: #fff;
 }
 
-.rp-about-banner::after {
+.rp-about-banner-art {
   position: absolute;
-  top: -100px;
-  right: 9%;
-  width: 310px;
-  height: 310px;
-  border: 1px solid rgba(255, 255, 255, .12);
-  border-radius: 50%;
-  box-shadow:
-    0 0 0 34px rgba(255, 255, 255, .035),
-    0 0 0 70px rgba(255, 255, 255, .025);
-  content: "";
+  inset: 0;
   pointer-events: none;
+}
+
+.rp-about-banner-art span {
+  position: absolute;
+  display: block;
+  color: rgba(48, 36, 83, .48);
+}
+
+.rp-about-banner-art svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  stroke-width: 1.15;
+}
+
+.rp-about-mark-gem-left {
+  top: 24px;
+  left: 10%;
+  width: 34px;
+  height: 34px;
+}
+
+.rp-about-mark-note {
+  top: 12px;
+  left: 34%;
+  width: 50px;
+  height: 50px;
+  transform: rotate(-18deg);
+}
+
+.rp-about-mark-dollar-top {
+  top: 4px;
+  right: 26%;
+  width: 34px;
+  height: 42px;
+}
+
+.rp-about-mark-gem-right {
+  top: 28px;
+  right: 6%;
+  width: 38px;
+  height: 38px;
+}
+
+.rp-about-mark-card {
+  bottom: 3px;
+  left: 14%;
+  width: 42px;
+  height: 36px;
+}
+
+.rp-about-mark-dollar-bottom {
+  right: 39%;
+  bottom: -7px;
+  width: 42px;
+  height: 48px;
+  transform: rotate(-20deg);
+}
+
+.rp-about-mark-receipt {
+  right: 24%;
+  bottom: 3px;
+  width: 39px;
+  height: 39px;
+  transform: rotate(24deg);
+}
+
+.rp-about-mark-bank {
+  right: 2%;
+  bottom: 5px;
+  width: 48px;
+  height: 40px;
 }
 
 .rp-about-banner-inner {
@@ -36,20 +100,12 @@
   margin: 0 auto;
 }
 
-.rp-about-banner-inner > p {
-  margin: 0 0 10px;
-  color: rgba(255, 255, 255, .78);
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 2px;
-}
-
 .rp-about-banner h1 {
   max-width: 760px;
   margin: 0;
   color: #fff;
   font-family: "Manrope", sans-serif;
-  font-size: clamp(30px, 5vw, 46px);
+  font-size: clamp(30px, 4vw, 40px);
   font-weight: 800;
   line-height: 1.16;
   letter-spacing: -.04em;
@@ -120,11 +176,36 @@
 
 @media (max-width: 600px) {
   .rp-about-banner {
-    padding: 34px 20px;
+    min-height: 164px;
+    padding: 30px 20px;
   }
 
   .rp-about-banner h1 {
-    font-size: clamp(30px, 8vw, 38px);
+    font-size: clamp(28px, 8vw, 34px);
+  }
+
+  .rp-about-mark-gem-left {
+    left: 12%;
+  }
+
+  .rp-about-mark-note {
+    left: 41%;
+  }
+
+  .rp-about-mark-dollar-top {
+    right: 26%;
+  }
+
+  .rp-about-mark-card {
+    left: 15%;
+  }
+
+  .rp-about-mark-dollar-bottom {
+    right: 40%;
+  }
+
+  .rp-about-mark-receipt {
+    right: 25%;
   }
 
   .rp-about-content {

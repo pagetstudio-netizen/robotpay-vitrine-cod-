@@ -2976,6 +2976,12 @@ button {
   overflow: hidden;
 }
 
+.robot-hero-header-only {
+  position: relative;
+  z-index: 100;
+  overflow: visible;
+}
+
 /* HEADER */
 
 .robot-header {

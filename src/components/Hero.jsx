@@ -29,7 +29,11 @@ export default function Hero({ headerOnly = false }) {
   };
 
   return (
-    <section className="robot-hero">
+    <section
+      className={`robot-hero ${
+        headerOnly ? "robot-hero-header-only" : ""
+      }`}
+    >
 
       {/* HEADER */}
 
@@ -64,7 +68,7 @@ export default function Hero({ headerOnly = false }) {
 
                 <button
                   className={language === "en" ? "active" : ""}
-                  onClick={() => { changeLanguage("en"); setLanguageOpen(false); }}
+                  onClick={() => selectLanguage("en")}
                 >
                   <span>🇬🇧</span>
                   English
@@ -72,7 +76,7 @@ export default function Hero({ headerOnly = false }) {
 
                 <button
                   className={language === "fr" ? "active" : ""}
-                  onClick={() => { changeLanguage("fr"); setLanguageOpen(false); }}
+                  onClick={() => selectLanguage("fr")}
                 >
                   <span>🇫🇷</span>
                   Français
@@ -80,7 +84,7 @@ export default function Hero({ headerOnly = false }) {
 
                 <button
                   className={language === "zh" ? "active" : ""}
-                  onClick={() => { changeLanguage("zh"); setLanguageOpen(false); }}
+                  onClick={() => selectLanguage("zh")}
                 >
                   <span>🇨🇳</span>
                   中文
@@ -167,15 +171,6 @@ export default function Hero({ headerOnly = false }) {
                 onClick={() => setMenuOpen(false)}
               >
                 <span>03</span>
-                {t.payinPayout}
-                <ArrowRight />
-              </a>
-
-              <a
-                href={sectionHref("services")}
-                onClick={() => setMenuOpen(false)}
-              >
-                <span>04</span>
                 {t.paymentLinks}
                 <ArrowRight />
               </a>
@@ -184,7 +179,7 @@ export default function Hero({ headerOnly = false }) {
                 href={sectionHref("services")}
                 onClick={() => setMenuOpen(false)}
               >
-                <span>05</span>
+                <span>04</span>
                 {t.apiSdk}
                 <ArrowRight />
               </a>
@@ -193,7 +188,7 @@ export default function Hero({ headerOnly = false }) {
                 to="/contact"
                 onClick={() => setMenuOpen(false)}
               >
-                <span>06</span>
+                <span>05</span>
                 {t.integrationSupport}
                 <ArrowRight />
               </Link>
@@ -202,7 +197,7 @@ export default function Hero({ headerOnly = false }) {
                 to="/about"
                 onClick={() => setMenuOpen(false)}
               >
-                <span>07</span>
+                <span>06</span>
                 {t.about}
                 <ArrowRight />
               </Link>
