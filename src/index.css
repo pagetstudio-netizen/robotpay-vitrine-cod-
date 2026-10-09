@@ -4993,163 +4993,255 @@ button {
 
 
 /* =====================================
-   PAYMENT NETWORK — NEW DESIGN
+   PAYMENT NETWORK — PHOTO HERO
 ===================================== */
 
-.rp-network-stats {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-  max-width: 700px;
-  margin: 38px auto 42px;
-}
-
-.rp-network-stat {
-  min-height: 145px;
-  padding: 25px 30px;
-  box-sizing: border-box;
-  border: 1px solid rgba(0,0,0,.08);
-  border-radius: 24px;
-  background: #FFFFFF;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  box-shadow: 0 12px 35px rgba(10,23,70,.07);
-}
-
-.rp-network-stat strong {
-  color: #111;
-  font-size: 52px;
-  line-height: 1;
-  font-weight: 800;
-  letter-spacing: -2px;
-}
-
-.rp-network-stat span {
-  margin-top: 9px;
-  color: #777;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.rp-network-marquee {
-  width: 100%;
-  overflow: hidden;
-  padding: 12px 0 22px;
+.rp-payments.rp-payments-hero {
   position: relative;
-}
-
-.rp-network-track {
-  width: max-content;
+  isolation: isolate;
   display: flex;
   align-items: center;
-  gap: 16px;
-  animation: rpCountriesScroll 38s linear infinite;
+  min-height: 100svh;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: clamp(72px, 9vw, 112px) 24px;
+  background: #10131c;
 }
 
-.rp-network-country {
-  height: 62px;
-  padding: 0 20px;
-  border: 1px solid rgba(0,0,0,.07);
-  border-radius: 999px;
-  background: #FFFFFF;
+.rp-payments.rp-payments-hero::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  content: "";
+  background-image:
+    linear-gradient(112deg, rgba(8, 11, 22, .91), rgba(11, 16, 31, .70) 52%, rgba(8, 11, 22, .86)),
+    var(--rp-payments-hero-image);
+  background-position: center;
+  background-size: cover;
+}
+
+.rp-payments.rp-payments-hero::after {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 0%, rgba(49, 87, 245, .2), transparent 58%);
+}
+
+.rp-payments-hero .rp-payments-inner {
+  position: relative;
+  z-index: 1;
+  width: min(1050px, 100%);
+}
+
+.rp-payments-hero .rp-section-label {
+  margin-bottom: 18px;
+  color: #9bb0ff;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.rp-payments-hero h2 {
+  max-width: 940px;
+  margin: 0 auto;
+  color: #fff;
+  font-size: clamp(38px, 6vw, 68px);
+  line-height: 1.08;
+  letter-spacing: -.045em;
+  text-align: center;
+}
+
+.rp-payments-hero h2 span {
+  color: #8ea5ff;
+}
+
+.rp-payments-hero .rp-payments-intro {
+  max-width: 690px;
+  margin: 22px auto 0;
+  color: rgba(255, 255, 255, .8);
+  font-size: clamp(15px, 2vw, 18px);
+  line-height: 1.7;
+  text-align: center;
+}
+
+.rp-payments-hero .rp-network-stats {
   display: flex;
-  align-items: center;
-  gap: 11px;
-  white-space: nowrap;
-  box-shadow: 0 8px 25px rgba(10,23,70,.06);
-}
-
-.rp-network-country img {
-  width: 31px;
-  height: 22px;
-  object-fit: cover;
-  border-radius: 3px;
-  display: block;
-}
-
-.rp-network-country span {
-  color: #222;
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.rp-network-marquee:hover .rp-network-track {
-  animation-play-state: paused;
-}
-
-@keyframes rpCountriesScroll {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.rp-network-note {
-  display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 9px;
-  margin: 12px 0 25px;
-  color: #777;
+  gap: 0;
+  max-width: 540px;
+  margin: 34px auto 28px;
+}
+
+.rp-payments-hero .rp-network-stat {
+  min-height: 0;
+  flex: 1;
+  padding: 0 28px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.rp-payments-hero .rp-network-stat + .rp-network-stat {
+  border-left: 1px solid rgba(255, 255, 255, .3);
+}
+
+.rp-payments-hero .rp-network-stat strong {
+  color: #fff;
+  font-size: clamp(34px, 5vw, 48px);
+  letter-spacing: -1.5px;
+}
+
+.rp-payments-hero .rp-network-stat span {
+  margin-top: 7px;
+  color: rgba(255, 255, 255, .72);
+  font-size: 13px;
+}
+
+.rp-network-country-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  width: min(940px, 100%);
+  margin: 0 auto;
+}
+
+.rp-payments-hero .rp-network-country {
+  min-width: 0;
+  height: 46px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .1);
+  box-shadow: none;
+  backdrop-filter: blur(10px);
+}
+
+.rp-payments-hero .rp-network-country img {
+  width: 24px;
+  height: 17px;
+  flex: 0 0 auto;
+  border-radius: 2px;
+}
+
+.rp-payments-hero .rp-network-country span {
+  min-width: 0;
+  color: #fff;
   font-size: 12px;
-  font-weight: 600;
+  line-height: 1.15;
 }
 
-.rp-network-note svg {
-  font-size: 14px;
+.rp-payments-hero .rp-network-note {
+  margin: 24px 0 0;
+  color: rgba(255, 255, 255, .78);
+  font-size: 13px;
 }
 
-.rp-network-note i {
-  width: 4px;
-  height: 4px;
-  margin: 0 7px;
-  border-radius: 50%;
-  background: #BBB;
+.rp-payments-hero .rp-network-note i {
+  background: rgba(255, 255, 255, .55);
+}
+
+.rp-payments-hero .rp-view-countries {
+  width: min(430px, 100%);
+  height: 62px;
+  margin: 28px auto 0;
+  border-radius: 12px;
+  background: #3157f5;
+  box-shadow: 0 12px 30px rgba(12, 32, 116, .25);
+}
+
+.rp-payments-hero .rp-view-countries:hover {
+  background: #2444d0;
+}
+
+.rp-payments-hero .rp-view-countries:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+}
+
+@media (max-width: 800px) {
+  .rp-network-country-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 600px) {
-
-  .rp-network-stats {
-    gap: 10px;
-    margin: 30px auto 32px;
+  .rp-payments.rp-payments-hero {
+    min-height: 100svh;
+    align-items: flex-start;
+    padding: 70px 18px 76px;
   }
 
-  .rp-network-stat {
-    min-height: 115px;
-    padding: 20px 10px;
-    border-radius: 19px;
+  .rp-payments.rp-payments-hero::before {
+    background-position: 58% center;
   }
 
-  .rp-network-stat strong {
-    font-size: 40px;
+  .rp-payments-hero h2 {
+    font-size: clamp(36px, 10vw, 46px);
+    letter-spacing: -.04em;
+    line-height: 1.1;
   }
 
-  .rp-network-stat span {
+  .rp-payments-hero .rp-payments-intro {
+    margin-top: 18px;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .rp-payments-hero .rp-network-stats {
+    margin: 28px auto 24px;
+  }
+
+  .rp-payments-hero .rp-network-stat {
+    padding: 0 18px;
+  }
+
+  .rp-payments-hero .rp-network-stat strong {
+    font-size: 38px;
+  }
+
+  .rp-payments-hero .rp-network-stat span {
     font-size: 12px;
   }
 
-  .rp-network-country {
-    height: 55px;
-    padding: 0 16px;
+  .rp-network-country-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
   }
 
-  .rp-network-country img {
-    width: 27px;
-    height: 19px;
+  .rp-payments-hero .rp-network-country {
+    height: 44px;
+    gap: 6px;
+    padding: 0 8px;
+    border-radius: 10px;
   }
 
-  .rp-network-country span {
+  .rp-payments-hero .rp-network-country img {
+    width: 21px;
+    height: 15px;
+  }
+
+  .rp-payments-hero .rp-network-country span {
+    font-size: 10px;
+  }
+
+  .rp-payments-hero .rp-network-note {
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
     font-size: 12px;
   }
 
-  .rp-network-track {
-    gap: 10px;
-    animation-duration: 32s;
+  .rp-payments-hero .rp-view-countries {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 360px) {
+  .rp-network-country-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
