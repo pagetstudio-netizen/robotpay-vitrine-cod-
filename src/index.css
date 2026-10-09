@@ -2017,7 +2017,7 @@ button {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 14px;
-  text-align: left;
+  text-align: center;
 }
 
 .rp-service-card {
@@ -2900,10 +2900,14 @@ button {
 .rp-service-card {
   min-height: 280px;
   padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border: 1px solid #e3e5e1;
   border-radius: 22px;
   background: #fff;
   transition: .25s ease;
+  text-align: center;
 }
 
 .rp-service-image {
@@ -2932,6 +2936,8 @@ button {
 
 .rp-service-card p {
   max-width: 230px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .rp-flaticon-credit {
@@ -3961,6 +3967,7 @@ button {
 .rp-solutions-heading {
   max-width: 680px;
   margin: 0 auto 38px;
+  text-align: center;
 }
 
 .rp-solutions-heading > span {
@@ -3987,7 +3994,7 @@ button {
 
 .rp-solutions-heading p {
   max-width: 580px;
-  margin-top: 18px;
+  margin: 18px auto 0;
   color: #596273;
   font-size: 17px;
   line-height: 1.55;
@@ -4025,6 +4032,8 @@ button {
   box-shadow: 0 12px 35px rgba(10, 23, 70, 0.09);
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .rp-solution-icon {
@@ -4093,6 +4102,9 @@ button {
 }
 
 .rp-solution-card p {
+  max-width: 100%;
+  margin-right: auto;
+  margin-left: auto;
   color: #626a7a;
   font-size: 14px;
   line-height: 1.5;
