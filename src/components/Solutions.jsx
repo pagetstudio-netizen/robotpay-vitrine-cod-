@@ -5,7 +5,6 @@ import transfer from "../assets/icons/transfer.png";
 import mobile from "../assets/icons/mobile.png";
 import payment from "../assets/icons/payment.png";
 import api from "../assets/icons/api.png";
-import integrationSupport from "../assets/integration-support.jpeg";
 
 const services = [
   {
@@ -62,18 +61,6 @@ export default function Solutions() {
         paymentSolutions: ["Payment Solutions", "Powerful tools for modern African businesses."],
         paymentApi: ["Payment API", "Integrate RobotPay directly into your application."]
       },
-      integrationLabel: "{current.integrationLabel}",
-      integrationTitle: <>We're here to help<br />you <span>get started.</span></>,
-      integrationDescription: "Our integration team is available to guide you through the setup, testing and launch of your RobotPay payment integration.",
-      features: [
-        ["API & SDK Setup", "Get help connecting your platform."],
-        ["Sandbox Testing", "Test your integration before going live."],
-        ["Payment Flow Testing", "Validate your payment and payout flows."],
-        ["Technical Support", "Our team is ready to help when you need it."]
-      ],
-      talk: "Talk to our team",
-      badge: "We're here to help",
-      badgeSub: "Integration support"
     },
     fr: {
       label: "CE QUE NOUS PROPOSONS",
@@ -87,18 +74,6 @@ export default function Solutions() {
         paymentSolutions: ["Solutions de paiement", "Des outils puissants pour les entreprises africaines modernes."],
         paymentApi: ["API de paiement", "Intégrez directement RobotPay à votre application."]
       },
-      integrationLabel: "SUPPORT D'INTÉGRATION",
-      integrationTitle: <>Nous sommes là pour vous aider<br />à <span>vous lancer.</span></>,
-      integrationDescription: "Notre équipe d'intégration vous accompagne lors de la configuration, des tests et du lancement de votre intégration de paiement RobotPay.",
-      features: [
-        ["Configuration API & SDK", "Obtenez de l'aide pour connecter votre plateforme."],
-        ["Tests Sandbox", "Testez votre intégration avant la mise en production."],
-        ["Tests des flux de paiement", "Validez vos flux de paiement et de payout."],
-        ["Support technique", "Notre équipe est disponible lorsque vous en avez besoin."]
-      ],
-      talk: "Contacter notre équipe",
-      badge: "Nous sommes là pour vous aider",
-      badgeSub: "Support d'intégration"
     },
     zh: {
       label: "我们的服务",
@@ -112,24 +87,11 @@ export default function Solutions() {
         paymentSolutions: ["支付解决方案", "为现代非洲企业提供强大的支付工具。"],
         paymentApi: ["支付 API", "将 RobotPay 直接集成到您的应用中。"]
       },
-      integrationLabel: "集成支持",
-      integrationTitle: <>我们随时为您提供帮助<br /><span>立即开始。</span></>,
-      integrationDescription: "我们的集成团队可以帮助您完成 RobotPay 支付集成的配置、测试和上线。",
-      features: [
-        ["API 与 SDK 设置", "帮助您连接平台。"],
-        ["Sandbox 测试", "上线前测试您的集成。"],
-        ["支付流程测试", "验证您的支付和付款流程。"],
-        ["技术支持", "需要帮助时，我们的团队随时为您服务。"]
-      ],
-      talk: "联系我们的团队",
-      badge: "我们随时为您提供帮助",
-      badgeSub: "集成支持"
     }
   }[language] || null;
 
   const current = content;
-    return (
-    <>
+  return (
       <section className="rp-services" id="services">
 
         <div className="rp-services-inner">
@@ -176,106 +138,5 @@ export default function Solutions() {
         </div>
 
       </section>
-
-
-      {/* =====================================
-          {current.integrationLabel}
-      ===================================== */}
-
-      <section className="rp-integration-section">
-
-        <div className="rp-integration-card">
-
-          <div className="rp-integration-content">
-
-            <div className="rp-integration-label">
-              {current.integrationLabel}
-            </div>
-
-            <h2>
-              {current.integrationTitle}
-            </h2>
-
-            <p className="rp-integration-description">
-              {current.integrationDescription}
-            </p>
-
-            <div className="rp-integration-features">
-
-              <div className="rp-integration-feature">
-                <div className="rp-feature-check">✓</div>
-                <div>
-                  <strong>{current.features[0][0]}</strong>
-                  <span>{current.features[0][1]}</span>
-                </div>
-              </div>
-
-              <div className="rp-integration-feature">
-                <div className="rp-feature-check">✓</div>
-                <div>
-                  <strong>{current.features[1][0]}</strong>
-                  <span>{current.features[1][1]}</span>
-                </div>
-              </div>
-
-              <div className="rp-integration-feature">
-                <div className="rp-feature-check">✓</div>
-                <div>
-                  <strong>{current.features[2][0]}</strong>
-                  <span>{current.features[2][1]}</span>
-                </div>
-              </div>
-
-              <div className="rp-integration-feature">
-                <div className="rp-feature-check">✓</div>
-                <div>
-                  <strong>{current.features[3][0]}</strong>
-                  <span>{current.features[3][1]}</span>
-                </div>
-              </div>
-
-            </div>
-
-            <a
-              href="https://t.me/geeorbotpay"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rp-integration-button"
-            >
-              <span>{current.talk}</span>
-
-              <span className="rp-integration-arrow">
-                →
-              </span>
-            </a>
-
-          </div>
-
-
-          <div className="rp-integration-visual">
-
-            <img
-              src={integrationSupport}
-              alt="RobotPay integration support team"
-            />
-
-            <div className="rp-integration-badge">
-
-              <div className="rp-badge-dot"></div>
-
-              <div>
-                <strong>{current.badge}</strong>
-                <span>{current.badgeSub}</span>
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-    </>
   );
 }

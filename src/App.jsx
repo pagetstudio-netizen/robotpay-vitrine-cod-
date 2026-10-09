@@ -9,8 +9,6 @@ import SendReceivePayments from "./components/SendReceivePayments";
 import PaymentFeaturePage from "./components/PaymentFeaturePage";
 import Infrastructure from "./components/Infrastructure";
 import GameApiSection from "./components/GameApiSection";
-import GlobalPayments from "./components/GlobalPayments";
-import CTA from "./components/CTA";
 import Footer from "./components/Footer";
 import Countries from "./components/Countries";
 import { LanguageProvider, useLanguage } from "./i18n";
@@ -82,35 +80,6 @@ function Home() {
         <SendReceivePayments />
         <Infrastructure />
         <GameApiSection />
-        <GlobalPayments />
-
-        {/* =====================================
-            ROBOTPAY SEO INTRODUCTION
-        ===================================== */}
-        <section className="rp-seo-section" aria-labelledby="robotpay-seo-title">
-          <div className="rp-seo-inner">
-
-            <span className="rp-section-label">
-              ROBOTPAY
-            </span>
-
-            <h2 id="robotpay-seo-title">
-              RobotPay — Payment Infrastructure for Africa
-            </h2>
-
-            <p>
-              RobotPay utilise des robots intelligents pour détecter,
-              vérifier et créditer automatiquement vos transactions en
-              temps réel. Notre infrastructure permet aux entreprises
-              d’accepter des paiements, d’effectuer des payouts et de
-              connecter leurs activités à plusieurs réseaux de paiement
-              en Afrique et sur les marchés émergents.
-            </p>
-
-          </div>
-        </section>
-
-        <CTA />
       </main>
       <Footer />
     </>
