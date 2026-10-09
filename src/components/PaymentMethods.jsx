@@ -1,6 +1,7 @@
 import { FaMobileAlt, FaCreditCard } from "react-icons/fa";
 
 import { useLanguage } from "../i18n.jsx";
+import paymentsHero from "../../attached_assets/payboxbusiness-S_1791569156861.png";
 
 import tg from "../assets/flags/tg.svg";
 import bj from "../assets/flags/bj.svg";
@@ -49,6 +50,7 @@ export default function PaymentMethods() {
       title: <>One platform.<br /><span>Multiple networks.</span></>,
       intro: "Connect your business to payment networks across Africa and global emerging markets.",
       countries: "Countries",
+      countryCoverage: "Countries supported",
       operators: "Operators",
       mobile: "Mobile Money",
       cards: "Cards",
@@ -60,6 +62,7 @@ export default function PaymentMethods() {
       title: <>Une plateforme.<br /><span>Plusieurs réseaux.</span></>,
       intro: "Connectez votre entreprise aux réseaux de paiement en Afrique et sur les marchés émergents mondiaux.",
       countries: "Pays",
+      countryCoverage: "Pays pris en charge",
       operators: "Opérateurs",
       mobile: "Mobile Money",
       cards: "Cartes",
@@ -71,6 +74,7 @@ export default function PaymentMethods() {
       title: <>一个平台。<br /><span>多个支付网络。</span></>,
       intro: "将您的企业连接到非洲及全球新兴市场的支付网络。",
       countries: "国家",
+      countryCoverage: "支持的国家",
       operators: "运营商",
       mobile: "移动支付",
       cards: "银行卡",
@@ -80,10 +84,12 @@ export default function PaymentMethods() {
 
   const current = text[language] || text.en;
 
-  const scrollingCountries = [...countries, ...countries];
-
   return (
-    <section className="rp-payments" id="payments">
+    <section
+      className="rp-payments rp-payments-hero"
+      id="payments"
+      style={{ "--rp-payments-hero-image": `url("${paymentsHero}")` }}
+    >
 
       <div className="rp-payments-inner">
 
@@ -113,30 +119,19 @@ export default function PaymentMethods() {
 
         </div>
 
-        <div className="rp-network-marquee">
-
-          <div className="rp-network-track">
-
-            {scrollingCountries.map((country, index) => (
-
-              <div
-                className="rp-network-country"
-                key={`${country.name}-${index}`}
-              >
-
-                <img
-                  src={country.flag}
-                  alt={`${country.name} flag`}
-                />
-
-                <span>{country.name}</span>
-
-              </div>
-
-            ))}
-
-          </div>
-
+        <div
+          className="rp-network-country-grid"
+          aria-label={current.countryCoverage}
+        >
+          {countries.map((country) => (
+            <div className="rp-network-country" key={country.name}>
+              <img
+                src={country.flag}
+                alt={`${country.name} flag`}
+              />
+              <span>{country.name}</span>
+            </div>
+          ))}
         </div>
 
         <div className="rp-network-note">
