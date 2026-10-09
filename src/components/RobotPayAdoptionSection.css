@@ -62,6 +62,7 @@
 .rp-adoption-panel-content {
   width: min(900px, 100%);
   margin: 0 auto;
+  text-align: center;
 }
 
 .rp-adoption-panel-label {
@@ -74,6 +75,7 @@
 
 .rp-adoption-panel h3 {
   max-width: 790px;
+  margin: 0 auto;
   color: #fff;
   font-family: "Manrope", sans-serif;
   font-size: clamp(2rem, 5.4vw, 4rem);
@@ -85,6 +87,8 @@
 .rp-adoption-description {
   max-width: 760px;
   margin-top: 30px;
+  margin-right: auto;
+  margin-left: auto;
   color: rgba(255, 255, 255, 0.84);
   font-size: clamp(16px, 2vw, 19px);
   line-height: 1.8;

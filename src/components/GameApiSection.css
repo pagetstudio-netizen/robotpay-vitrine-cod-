@@ -137,6 +137,23 @@
   margin: 0 auto;
 }
 
+.rp-game-api-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+  text-align: center;
+}
+
+.rp-game-api-step > div {
+  width: min(100%, 700px);
+  text-align: center;
+}
+
+.rp-game-api-step-number {
+  margin: 0 auto;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .rp-game-api-action {
     transition: none;

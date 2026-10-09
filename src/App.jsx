@@ -92,6 +92,7 @@ function Home() {
 function CountriesPage() {
   return (
     <>
+      <Hero headerOnly />
       <main>
         <Countries />
       </main>

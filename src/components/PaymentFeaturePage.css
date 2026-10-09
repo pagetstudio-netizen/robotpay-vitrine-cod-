@@ -306,3 +306,205 @@
     font-size: 12px;
   }
 }
+
+.rp-feature-detail {
+  width: min(1040px, calc(100% - 48px));
+  padding: clamp(48px, 7vw, 78px) 0 88px;
+}
+
+.rp-feature-detail-hero {
+  text-align: center;
+}
+
+.rp-feature-eyebrow,
+.rp-feature-back,
+.rp-feature-back-mobile,
+.rp-feature-page-footer a {
+  color: #3157f5;
+}
+
+.rp-feature-detail-hero h1,
+.rp-feature-detail-intro,
+.rp-feature-steps-header,
+.rp-feature-support {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.rp-feature-detail-points {
+  width: min(820px, 100%);
+  margin: clamp(44px, 6vw, 68px) auto 0;
+  border-color: #e1e8fb;
+  background: #f7f9ff;
+}
+
+.rp-feature-detail-points h2 {
+  text-align: center;
+}
+
+.rp-feature-detail-points ul {
+  width: 100%;
+  margin: 0 auto;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.rp-feature-detail-points li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.rp-feature-point-number {
+  background: #e8edff;
+  color: #3157f5;
+}
+
+.rp-feature-steps {
+  margin-top: clamp(56px, 8vw, 88px);
+}
+
+.rp-feature-steps-header {
+  max-width: 720px;
+}
+
+.rp-feature-steps-header h2,
+.rp-feature-support h2 {
+  color: #101a4a;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 750;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+}
+
+.rp-feature-steps-header p,
+.rp-feature-support p {
+  margin-top: 15px;
+  color: #5c6476;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.rp-feature-step-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 32px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rp-feature-step-card {
+  min-width: 0;
+  padding: 25px 22px;
+  border: 1px solid #e4e9f5;
+  border-radius: 16px;
+  background: #fff;
+  text-align: center;
+}
+
+.rp-feature-step-number {
+  display: inline-flex;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #e8edff;
+  color: #3157f5;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.rp-feature-step-card h3 {
+  margin-top: 18px;
+  color: #101a4a;
+  font-family: "Manrope", sans-serif;
+  font-size: 17px;
+  font-weight: 750;
+  line-height: 1.35;
+}
+
+.rp-feature-step-card p {
+  margin-top: 10px;
+  color: #5c6476;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.rp-feature-support {
+  width: min(820px, 100%);
+  margin-top: clamp(56px, 8vw, 88px);
+  padding: clamp(30px, 5vw, 48px) 24px;
+  border-radius: 18px;
+  background: linear-gradient(120deg, #3157f5 0%, #17285f 100%);
+}
+
+.rp-feature-support h2 {
+  color: #fff;
+}
+
+.rp-feature-support p {
+  max-width: 610px;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.rp-feature-contact {
+  margin: 25px auto 0;
+  background: #fff;
+  color: #2444d0;
+}
+
+.rp-feature-contact:hover {
+  background: #e9a16d;
+  color: #101a4a;
+}
+
+.rp-feature-contact:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+}
+
+@media (max-width: 700px) {
+  .rp-feature-detail {
+    width: calc(100% - 40px);
+  }
+
+  .rp-feature-detail-points {
+    padding: 25px 18px;
+  }
+
+  .rp-feature-detail-points li {
+    align-items: center;
+    text-align: center;
+  }
+
+  .rp-feature-detail-points ul {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .rp-feature-step-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 25px;
+  }
+
+  .rp-feature-step-card {
+    padding: 22px 20px;
+  }
+
+  .rp-feature-support {
+    padding: 32px 20px;
+  }
+
+  .rp-feature-steps-header p,
+  .rp-feature-support p {
+    font-size: 16px;
+  }
+}

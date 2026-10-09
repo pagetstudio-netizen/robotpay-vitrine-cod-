@@ -4,34 +4,29 @@ import {
   paymentFeaturePageCopy,
   paymentFeatures
 } from "../data/paymentFeatures.js";
+import Hero from "./Hero";
 import "./PaymentFeaturePage.css";
-
-const languageNames = {
-  en: "English",
-  fr: "Français",
-  zh: "中文"
-};
 
 export default function PaymentFeaturePage() {
   const { slug } = useParams();
-  const { language, changeLanguage } = useLanguage();
+  const { language } = useLanguage();
   const feature = paymentFeatures.find((item) => item.slug === slug);
   const current = paymentFeaturePageCopy[language] || paymentFeaturePageCopy.en;
 
   if (!feature) {
     return (
       <div className="rp-feature-page">
-        <header className="rp-feature-page-header">
-          <Link className="rp-feature-page-logo" to="/">
-            Robot<span>Pay</span>
-          </Link>
-        </header>
+        <Hero headerOnly />
         <main className="rp-feature-not-found">
           <h1>{current.notFoundTitle}</h1>
           <Link className="rp-feature-back" to="/">
             {current.backHome}
           </Link>
         </main>
+        <footer className="rp-feature-page-footer">
+          <span>© 2026 RobotPay</span>
+          <Link to="/">{current.backHome}</Link>
+        </footer>
       </div>
     );
   }
@@ -40,30 +35,7 @@ export default function PaymentFeaturePage() {
 
   return (
     <div className="rp-feature-page">
-      <header className="rp-feature-page-header">
-        <Link className="rp-feature-page-logo" to="/" aria-label="RobotPay">
-          Robot<span>Pay</span>
-        </Link>
-        <div className="rp-feature-page-header-actions">
-          <label className="rp-feature-language">
-            <span>{current.language}</span>
-            <select
-              value={language}
-              onChange={(event) => changeLanguage(event.target.value)}
-              aria-label={current.language}
-            >
-              {Object.entries(languageNames).map(([value, name]) => (
-                <option key={value} value={value}>
-                  {name}
-                </option>
-              ))}
-            </select>
-          </label>
-          <Link className="rp-feature-back" to="/">
-            {current.backHome}
-          </Link>
-        </div>
-      </header>
+      <Hero headerOnly />
 
       <main className="rp-feature-detail">
         <section className="rp-feature-detail-hero">
@@ -90,7 +62,27 @@ export default function PaymentFeaturePage() {
           </ul>
         </section>
 
-        <div className="rp-feature-detail-actions">
+        <section className="rp-feature-steps" aria-labelledby="rp-feature-steps-title">
+          <div className="rp-feature-steps-header">
+            <h2 id="rp-feature-steps-title">{content.stepsTitle}</h2>
+            <p>{content.stepsIntro}</p>
+          </div>
+          <ol className="rp-feature-step-grid">
+            {content.steps.map((step, index) => (
+              <li className="rp-feature-step-card" key={step.title}>
+                <span className="rp-feature-step-number" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h3>{step.title}</h3>
+                <p>{step.description}</p>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <section className="rp-feature-support">
+          <h2>{current.supportTitle}</h2>
+          <p>{current.supportDescription}</p>
           <Link
             className="rp-feature-contact"
             to="/contact"
@@ -98,10 +90,7 @@ export default function PaymentFeaturePage() {
             {current.contact}
             <span aria-hidden="true">→</span>
           </Link>
-          <Link className="rp-feature-back-mobile" to="/">
-            {current.backHome}
-          </Link>
-        </div>
+        </section>
       </main>
 
       <footer className="rp-feature-page-footer">
