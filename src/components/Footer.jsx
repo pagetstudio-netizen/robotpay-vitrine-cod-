@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 
 import {
   ArrowUp,
-  ArrowUpRight,
+  Globe,
   Mail,
-  MapPin
 } from "lucide-react";
 
 export default function Footer() {
@@ -61,8 +60,8 @@ export default function Footer() {
               </Link>
 
               <Link to="/contact">
-                <MapPin size={14} />
-                Africa
+                <Globe size={14} />
+                International platform
               </Link>
             </div>
 
