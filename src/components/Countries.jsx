@@ -109,7 +109,7 @@ export default function Countries() {
       <div className="rp-country-grid">
 
         {countries.map((country) => (
-          <div className="rp-country-card" key={country.name}>
+          <div className="rp-country-card" key={country.code}>
 
             <div className="rp-country-top">
 

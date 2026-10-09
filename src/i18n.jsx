@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const translations = {
   en: {
@@ -73,6 +73,10 @@ export function LanguageProvider({ children }) {
   );
 
   const [isChangingLanguage, setIsChangingLanguage] = useState(false);
+
+  useEffect(() => {
+    document.documentElement.lang = language === "zh" ? "zh-CN" : language;
+  }, [language]);
 
   const changeLanguage = (newLanguage) => {
     if (!newLanguage || newLanguage === language) return;
